@@ -6,7 +6,7 @@ try:
     # Prepare data for chart    
     cTitle = 'My Title'
     cTheme = 'light2'   # Change to: 'light1', 'light2', 'dark1', 'dark2', etc.
-    cType = 'bar' #'column'    # Change to: "bar", "area", "spline", "pie", etc.
+    cType = 'bar'       # Change to: 'column', 'bar', 'area', 'spline", 'pie', etc.
     cAnim = False
     cData = []
     cLabels = ['apples','beetroot','carrots','damsel','elderberry']
