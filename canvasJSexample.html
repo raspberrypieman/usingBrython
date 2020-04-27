@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html> <!-- canvasJSexample.html -->
+<head>
+<style>
+  body {
+          font-family: arial;
+  }
+</style>
+<script type='text/javascript' src="https://canvasjs.com/assets/script/canvasjs.min.js"> </script>
+<script type='text/javascript' src='https://www.brython.info/src/brython.js'></script>
+<script type='text/python' src='canvasJSexample.py'></script>
+<script type="text/javascript">
+
+function doChart(cTitle, cTheme, cType, cAnim, cLabels, cPoints) {
+  try {
+    dp = [];
+    for (var n=0; n<cLabels.length; n++) {
+        dp[n] = { label: cLabels[n],   y: cPoints[n] };
+    }
+
+  	var chart = new CanvasJS.Chart("chartContainer", {
+  		theme: cTheme,
+  		animationEnabled: cAnim,
+  		title:{text: cTitle},
+  		data: [ { type: cType, dataPoints: dp } ]
+  	});
+    chart.render();
+
+  } catch (err) {
+  	  alert('doChart() Exception: ' + err.message);
+  }
+}
+
+</script>
+</head>
+<body onload='brython(1)'>
+<table>
+<tr>
+    <td style='width: 100px'>
+        <div>
+            <table>
+                <tr><td>Chart Type</td></tr>
+                <tr><td><input type="radio" id="type0" name="type" checked>Column</td></tr>
+                <tr><td><input type="radio" id="type1" name="type">Bar</td></tr>
+                <tr><td><input type="radio" id="type2" name="type">Pie</td></tr>
+                <tr><td><input type="radio" id="type3" name="type">Spline</td></tr>
+                <tr><td><input type="radio" id="type4" name="type">Area</td></tr>
+            </table>
+        </div>
+    </td>
+    <td style='width: 90%'><div id="chartContainer" style="height: 370px; width: 100%;"></div></td>
+</tr>
+</table>
+</body>
+</html>
